@@ -7,7 +7,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <div className="flex items-center">
-                <h1 className="text-4xl font-semibold text-gray-900 font-sans">Tarvina Galeri</h1> {/* Logo yerine yazı */}
+                <h1 className="text-4xl font-semibold text-white font-sans">Tarvina Galeri</h1> 
             </div>
           </div>
           <div className="flex items-center">
