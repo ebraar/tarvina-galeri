@@ -15,7 +15,7 @@ const CategoryMenu = () => {
   ];
 
   return (
-    <div className="h-full bg-gray-200 fixed rounded-lg w-1/4">
+    <div className="h-full bg-gray-100 fixed rounded-lg w-1/4">
       <div className="p-5">
         <h2 className="font-bold text-xl mb-4">Kategoriler</h2>
         <ul className="space-y-2">
