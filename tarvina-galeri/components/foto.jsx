@@ -1,21 +1,26 @@
 "use client"
 import axios from 'axios';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import MobilPhotos from "/components/fotoMobil"; 
 
-const Photos = () => {
-    const [photos, setPhotos] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
-    const [favorites, setFavorites] = useState({});
+function Photos() {
 
-    const toggleFavorite = (photoId, e) => {
-      e.stopPropagation(); // Detay sayfasına gitmesini önlemek için
-      setFavorites(prev => ({
-        ...prev,
-        [photoId]: !prev[photoId]
-      }));
+  const [isMobile, setIsMobile] = useState(window.innerWidth <786);
+  const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
     };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
     useEffect(() => {
         const fetchPhotos = async () => {
@@ -32,6 +37,10 @@ const Photos = () => {
 
         fetchPhotos(); 
     }, []);
+
+    if(isMobile){
+      return <MobilPhotos/>
+    }
 
     if (error) return <p>{error}</p>;
     

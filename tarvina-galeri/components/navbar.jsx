@@ -1,12 +1,31 @@
-import React from 'react';
+import MobilNav from "/components/navbarMobil";      
+import React, {useState, useEffect} from 'react';
 
-const Navbar = () => {
+function Navbar() {
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  
+  if(isMobile){
+    return <MobilNav/>
+  }
+
   return (
     <nav className="bg-orange-500 shadow fixed top-0 left-0 right-0 z-30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between flex-col sm:flex-row h-auto sm:h-16">
           <div className="flex items-center justify-center sm:justify-start w-full">
-            <h1 className="text-4xl font-semibold text-white font-sans my-4 sm:my-0">Tarvina Galeri</h1>
+            <h1 className="text-4xl font-semibold text-white font-source-sans my-4 sm:my-0">Tarvina Galeri</h1>
           </div>
           <div className="flex items-center flex-row w-full">
             <div className="flex-grow">
@@ -26,9 +45,6 @@ const Navbar = () => {
       </div>
     </nav>
   );
-  
-  
 };
-
 
 export default Navbar;
