@@ -43,26 +43,34 @@ function PhotoDetailPage() {
       </div>
       <div className="w-3/4">
       {photo && (
-        <>
-        <div className="container mx-auto p-4 flex items-center justify-center min-h-screen">
-    <div className="flex flex-col md:flex-row items-center justify-center">
-      <div className="md:w-1/3 w-1/2 max-w-sm"> 
-        <img src={photo.image} alt={photo.title} className="w-full h-auto object-contain" /> 
-      </div>
-      <div className="md:pl-8 md:mt-0 mt-4 w-full">
-        <h1 className="text-2xl font-bold text-center">{photo.title}</h1>
-        <p className="mt-4">{photo.description}</p>
-        <button 
-          onClick={() => router.push('/')}
-          className="mt-4 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded transition duration-300 text-center max-w-sm"
-        >
-          Galeriye Dön
-        </button>
+  <>
+    <div className="relative container mx-auto p-4 flex items-center justify-center min-h-screen">
+      {/* Geri dön butonu, sol üst köşede yer alacak ve daha ince çerçeveli olacak */}
+      <button 
+        onClick={() => router.push('/')}
+        className="absolute top-4 left-4 bg-white border border-gray-300 text-gray-700 hover:text-gray-900 font-bold py-2 px-4 rounded transition duration-300 flex items-center justify-center"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} className="h-6 w-6">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+        </svg>
+      </button>
+
+      <div className="flex flex-col md:flex-row items-center justify-center">
+        {/* Fotoğrafın sola kaydırılması ve sağ tarafındaki boşluğun azaltılması */}
+        <div className="md:w-2/3 w-full max-w-4xl mr-4"> 
+          <img src={photo.image} alt={photo.title} className="w-full max-h-[80vh] object-contain" /> 
+        </div>
+        {/* Metin içeriğinin daha kompakt olması ve ekranı doldurmadan görülebilir olması */}
+        <div className="md:pl-8 md:mt-0 mt-4 w-full md:w-1/3 overflow-auto max-h-[80vh] md:pr-2">
+          <h1 className="text-2xl font-bold">{photo.title}</h1>
+          <p className="mt-4 text-lg">{photo.description}</p>
+        </div>
       </div>
     </div>
-  </div>
-        </>
-      )}
+  </>
+)}
+
+
       </div>
       </div>
     </div>
