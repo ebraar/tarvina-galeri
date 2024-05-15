@@ -2,7 +2,7 @@ import React from 'react';
 
 const CategoryMenu = () => {
   const categories = [
-    "Hayvanlar & Doğa",
+    "Doğa",
     "Mimari",
     "Arka Fonlar",
     "İş & Ofis",
@@ -15,7 +15,7 @@ const CategoryMenu = () => {
   ];
 
   return (
-    <div className="h-full bg-gray-100 fixed rounded-lg w-1/4">
+    <div className="h-full bg-gray-100 fixed rounded-lg sm:w-1/4">
       <div className="p-5">
         <h2 className="font-bold text-xl mb-4">Kategoriler</h2>
         <ul className="space-y-2">
@@ -28,7 +28,7 @@ const CategoryMenu = () => {
         </ul>
       </div>
     </div>
-  );
+  ); 
 }
 
 export default CategoryMenu;
