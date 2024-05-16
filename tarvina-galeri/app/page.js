@@ -26,11 +26,11 @@ export default function Home() {
       <div className="pt-16">  
         <div className="flex flex-row items-start gap-8">
         {!isMobile && (
-            <div className="w-1/4">
+            <div className="w-1/5">
               <CategoryMenu />
             </div>
           )}
-          <div className={isMobile ? "w-full" : "w-3/4"}> 
+          <div className={isMobile ? "w-full" : "w-4/5"}> 
             <Photos /> 
           </div>
         </div>

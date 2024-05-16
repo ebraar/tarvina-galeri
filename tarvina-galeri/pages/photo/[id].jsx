@@ -53,11 +53,11 @@ function PhotoDetailPage() {
       <Navbar />
       <div className={`flex flex-row items-start gap-8 ${isMobile ? 'pt-16' : 'pt-0'}`}>
       {!isMobile && (
-        <div className="w-1/4 mt-16">
+        <div className="w-1/5 mt-16">
           <CategoryMenu />
         </div>
       )}
-      <div className={`w-full ${!isMobile ? 'md:w-3/4' : ''}`}>
+      <div className={`w-full ${!isMobile ? 'w-4/5' : ''}`}>
       {photo && (
         <div className="relative container mx-auto p-4 flex items-center justify-center min-h-screen">
           <button 
@@ -70,11 +70,11 @@ function PhotoDetailPage() {
             </svg>
           </button>
   
-          <div className="flex flex-col md:flex-row items-center justify-center">
-            <div className="md:w-2/3 w-full max-w-4xl"> 
-              <img src={photo.image} alt={photo.title} className="w-full max-h-[50vh] object-contain mt-12" style={{ height: '300px', width: '400px' }}/> 
+          <div className="grid md:grid-cols-2 items-center md:items-start justify-center">
+            <div className="w-full "> 
+              <img src={photo.image} alt={photo.title} className="w-96 h-96 object-contain mt-12 p-5 md:p-2" /> 
             </div>
-            <div className="md:pl-8 md:mt-0 mt-4 w-full md:w-1/3">
+            <div className="md:pl-8 md:mt-0 mt-4 w-full">
               <h1 className="text-xl font-bold">{photo.title}</h1>
               <p className="mt-2 text-lg">{photo.description}</p>
             </div>
